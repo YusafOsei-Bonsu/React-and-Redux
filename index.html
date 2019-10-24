@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link href="index.css" type="text/css" rel="stylesheet">
-    <!-- Importing React -->
-    <script src="js/react.min.js"></script>
-    <!-- Importing React DOM -->
-    <script src="js/react-dom.min.js"></script>
-    <!-- Importing Babel transpiler to convert JSX in JS -->
-    <script src="js/browser.min.js"></script>
-    <!-- Getting React and Redux over a CDN  -->
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <title>Learning React & Redux</title>
-  </head>
-  <body>
-    <h1 class="title">Learning React & Redux</h1>
 
-    <div id="app"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <link href="index.css" type="text/css" rel="stylesheet">
+  <!-- Getting React and Redux over a CDN  -->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- Babel transpiler -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Components | Learning React & Redux</title>
+</head>
+
+<body>
+  <h1 class="title">Components | Learning React & Redux</h1>
+
+  <div id="home"></div>
+
+  <script type="text/babel">
+    // Class represents basic component
+    class App extends React.Component {
+      render() {
+        // The value we return will be a JSX template
+        return (
+          // div is the root element
+          <div>
+            <p className="centered">Hello World!</p>
+            <p className="centered">{Math.random() * 10}</p>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById('home'));
+  </script>
+</body>
+
 </html>
