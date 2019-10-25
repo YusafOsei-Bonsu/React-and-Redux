@@ -20,6 +20,13 @@
   <script type="text/babel">
     // Class represents basic component
     class App extends React.Component {
+      // States are JS objects containing different properties.
+      // In this case, the name and age.
+      state = {
+        name: 'Yusaf',
+        age: 24
+      }
+
       render() {
         // The value we return will be a JSX template
         return (
@@ -27,7 +34,7 @@
           // Second child component is dynamic
           <div>
             <p className="centered">Hello World!</p>
-            <p className="centered">{Math.random() * 10}</p>
+            <p className="centered">My name is {this.state.name} and I am {this.state.age} years old.</p>
           </div>
         )
       }
