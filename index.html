@@ -27,12 +27,19 @@
         age: 24
       }
 
+      // Clicking the component
       handleClick(e) {
         console.log(e.target);
       }
 
+      // If you hover over a component
       handleMouseOver(e) {
-        console.log(e);
+        console.log(e.target, e.pageX);
+      }
+
+      // If user copies data
+      handleCopy(e) {
+        console.log('Try being original for once mf!');
       }
 
       render() {
@@ -45,6 +52,7 @@
             <p className="centered">My name is {this.state.name} and I am {this.state.age} years old.</p>
             <button OnClick={this.handleClick}>Click Me</button>
             <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+            <p onCopy={this.handleCopy}>What we think, we become.</p>
           </div>
         )
       }
