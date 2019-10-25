@@ -1,75 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="index.css" type="text/css" rel="stylesheet">
+    <!-- Getting React and Redux over a CDN  -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Babel transpiler -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Forms | Learning React & Redux</title>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <link href="index.css" type="text/css" rel="stylesheet">
-  <!-- Getting React and Redux over a CDN  -->
-  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-  <!-- Babel transpiler -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <title>Forms | Learning React & Redux</title>
-</head>
+  <body>
+    <h1 class="title">Forms | Learning React & Redux</h1>
 
-<body>
-  <h1 class="title">Forms | Learning React & Redux</h1>
+    <div id="home"></div>
 
-  <div id="home"></div>
+    <script type="text/babel">
+      // Class represents basic component
+      class App extends React.Component {
 
-  <script type="text/babel">
-    // Class represents basic component
-    class App extends React.Component {
-      // States are JS objects containing different properties.
-      // In this case, the name and age.
-      state = {
-        name: 'Yusaf',
-        age: 24
-      }
+/*
+States are JS objects containing different properties.
+In this case, the name and age.
+*/
+        state = {
+          name: 'Yusaf',
+          age: 24
+        }
 
-      /*
+/*
 Custom functions are defined as arrow functions when we want to access/change
 state, as well as when we want to use 'this' inside them.
-      */
+*/
+        handleChange = (e) => {
+          // Changes state's name on the fly
+          this.setState({
+            name: e.target.value
+          });
+        }
 
-      // Clicking the component
-      handleClick = (e) => {
-        // Changes a certain property in the component state
-        this.setState({
-          name: 'Jason',
-          age: 30
-        });
-        console.log(this.state);
+        // Submit a form upon button press
+        handleSubmit = (e) => {
+          // Prevents default refresh
+          e.preventDefault();
+          console.log('Form submitted ', this.state.name);
+        }
+
+        render() {
+          // The value we return will be a JSX template
+          return (
+            // div is the root element
+            <div>
+              <p className="centered">My name is {this.state.name} and I am {this.state.age} years old.</p>
+              <form onSubmit={this.handleSubmit} className="inTheMiddle">
+                <input type="text" onChange={this.handleChange} />
+                <button>Submit</button>
+              </form>
+            </div>
+          )
+        }
       }
 
-      // If you hover over a component
-      handleMouseOver = (e) => {
-        console.log(e.target, e.pageX);
-      }
-
-      // If user copies data
-      handleCopy = (e) => {
-        console.log('Try being original for once mf!');
-      }
-
-      render() {
-        // The value we return will be a JSX template
-        return (
-          // div is the root element
-          // Second child component is dynamic
-          <div>
-            <p className="centered">Hello World!</p>
-            <p className="centered">My name is {this.state.name} and I am {this.state.age} years old.</p>
-            <button onClick={this.handleClick}>Click Me</button>
-            <button onMouseOver={this.handleMouseOver}>Hover Me</button>
-            <p onCopy={this.handleCopy}>What we think, we become.</p>
-          </div>
-        )
-      }
-    }
-
-    ReactDOM.render(<App/>, document.getElementById('home'));
-  </script>
-</body>
-
+      ReactDOM.render(<App/>, document.getElementById('home'));
+    </script>
+  </body>
 </html>
