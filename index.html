@@ -27,18 +27,23 @@
         age: 24
       }
 
+      /*
+Custom functions are defined as arrow functions when we want to access/change
+state, as well as when we want to use 'this' inside them.
+      */
+
       // Clicking the component
-      handleClick(e) {
-        console.log(e.target);
+      handleClick = (e) => {
+        console.log(this.state);
       }
 
       // If you hover over a component
-      handleMouseOver(e) {
+      handleMouseOver = (e) => {
         console.log(e.target, e.pageX);
       }
 
       // If user copies data
-      handleCopy(e) {
+      handleCopy = (e) => {
         console.log('Try being original for once mf!');
       }
 
@@ -50,7 +55,7 @@
           <div>
             <p className="centered">Hello World!</p>
             <p className="centered">My name is {this.state.name} and I am {this.state.age} years old.</p>
-            <button OnClick={this.handleClick}>Click Me</button>
+            <button onClick={this.handleClick}>Click Me</button>
             <button onMouseOver={this.handleMouseOver}>Hover Me</button>
             <p onCopy={this.handleCopy}>What we think, we become.</p>
           </div>
