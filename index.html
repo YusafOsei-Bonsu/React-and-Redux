@@ -34,6 +34,11 @@ state, as well as when we want to use 'this' inside them.
 
       // Clicking the component
       handleClick = (e) => {
+        // Changes a certain property in the component state
+        this.setState({
+          name: 'Jason',
+          age: 30
+        });
         console.log(this.state);
       }
 
