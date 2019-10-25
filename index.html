@@ -9,11 +9,11 @@
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <!-- Babel transpiler -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <title>Components | Learning React & Redux</title>
+  <title>DOM Events | Learning React & Redux</title>
 </head>
 
 <body>
-  <h1 class="title">Components | Learning React & Redux</h1>
+  <h1 class="title">DOM Events | Learning React & Redux</h1>
 
   <div id="home"></div>
 
@@ -27,6 +27,14 @@
         age: 24
       }
 
+      handleClick(e) {
+        console.log(e.target);
+      }
+
+      handleMouseOver(e) {
+        console.log(e);
+      }
+
       render() {
         // The value we return will be a JSX template
         return (
@@ -35,6 +43,8 @@
           <div>
             <p className="centered">Hello World!</p>
             <p className="centered">My name is {this.state.name} and I am {this.state.age} years old.</p>
+            <button OnClick={this.handleClick}>Click Me</button>
+            <button onMouseOver={this.handleMouseOver}>Hover Me</button>
           </div>
         )
       }
