@@ -1,7 +1,9 @@
+// Importing React
 import React from 'react';
-
-// Importing Ninjas
+// Importing Ninjas.js
 import Ninjas from './Ninjas.js';
+// Importing AddNinja.js
+import AddNinja from './AddNinja.js'
 
 // App.js is the root component
 class App extends React.Component {
@@ -19,6 +21,7 @@ class App extends React.Component {
         <h1>My first React app!</h1>
         <p>Welcome to my Simple Website, mf! :)</p>
         <Ninjas ninjas={this.state.ninjas} />
+        <AddNinja/>
       </div>
     )
   }
