@@ -3,14 +3,23 @@ import React from 'react';
 // This will be a nested component within the root component (i.e. App.js)
 class Ninjas extends React.Component {
   render() {
-    // Prints the properties of the Ninjas component (in App.js)
-    // console.log(this.props);
-    const {name, age, belt} = this.props;
+    const {ninjas} = this.props;
+
+    // Every ninja will be stored in the list
+    const ninjaList = ninjas.map(ninja => {
+      return (
+        <div className="ninja" key={ninja.id}>
+          <div>Name: {ninja.name}</div>
+          <div>Age: {ninja.age}</div>
+          <div>Belt: {ninja.belt}</div>
+          <br/>
+        </div>
+      )
+    })
     return (
-      <div className="ninja">
-        <div>Name: {name}</div>
-        <div>Age: {age}</div>
-        <div>Handsome: {belt}</div>
+      // Printing each ninja
+      <div className="ninja-list">
+        {ninjaList}
       </div>
     )
   }
