@@ -27,6 +27,7 @@ class App extends React.Component {
     })
   }
 
+  // Removing ninjas from the UI
   deleteNinja = (id) => {
     // if 'ninja.id !== id' is true, the ninja remains.
     // Otherwise, if it evaluates to false, the ninja is deleted.
