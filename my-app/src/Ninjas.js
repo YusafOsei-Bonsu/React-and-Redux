@@ -1,7 +1,7 @@
 import React from 'react';
 
 // This will be a nested component within the root component (i.e. App.js)
-const Ninjas = ({ninjas}) => {
+const Ninjas = ({ninjas, deleteNinja}) => {
 
   const ninjaList = ninjas.map(ninja => {
   // IF statement approach
@@ -11,6 +11,7 @@ const Ninjas = ({ninjas}) => {
         <div>Name: {ninja.name}</div>
         <div>Age: {ninja.age}</div>
         <div>Belt: {ninja.belt}</div>
+        <button onClick={() => {deleteNinja(ninja.id)}}>Delete</button>
         <br/>
         </div>
       )
@@ -18,18 +19,6 @@ const Ninjas = ({ninjas}) => {
       return null;
     }
   })
-
-  // Ternary operator approach
-  // const ninjaList = ninjas.map(ninja => {
-  //   return ninja.age > 20 ? (
-  //     <div className="ninja" key={ninja.id}>
-  //       <div>Name: {ninja.name}</div>
-  //       <div>Age: {ninja.age}</div>
-  //       <div>Belt: {ninja.belt}</div>
-  //       <br/>
-  //     </div>
-  //   ) : null;
-  // })
 
   return (
     // Printing each ninja
