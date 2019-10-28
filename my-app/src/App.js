@@ -15,13 +15,25 @@ class App extends React.Component {
     ]
   }
 
+  // Adding ninjas into the above state
+  addNinja = (ninja) => {
+    ninja.id = Math.random();
+    // Making a copy of the original ninjas and appending the new ninja
+    // It's bad practice to alter the original list directly (using .push)
+    let ninjasCopy = [...this.state.ninjas, ninja];
+    // New ninja is presented on html page
+    this.setState({
+      ninjas: ninjasCopy
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>My first React app!</h1>
         <p>Welcome to my Simple Website, mf! :)</p>
         <Ninjas ninjas={this.state.ninjas} />
-        <AddNinja/>
+        <AddNinja addNinja={this.addNinja}/>
       </div>
     )
   }
