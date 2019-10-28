@@ -14,8 +14,8 @@ class AddNinja extends React.Component {
   handleSubmit = (e) => {
     // Prevent default refresh
     e.preventDefault();
-    // An object containing the name, age and belt of the new ninja will be printed in the console
-    console.log(this.state);
+    // Adding a ninja into the list upon pressing the Submit button
+    this.props.addNinja(this.state);
   }
 
   render() {
