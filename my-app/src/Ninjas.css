@@ -1,0 +1,8 @@
+body {
+  background: pink;
+}
+
+.ninjas > form {
+  background: White;
+  padding: 20px;
+}
