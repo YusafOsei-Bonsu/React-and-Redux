@@ -27,12 +27,24 @@ class App extends React.Component {
     })
   }
 
+  deleteNinja = (id) => {
+    // if 'ninja.id !== id' is true, the ninja remains.
+    // Otherwise, if it evaluates to false, the ninja is deleted.
+    let ninjasCopy = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id;
+    })
+
+    this.setState({
+      ninjas: ninjasCopy
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>My first React app!</h1>
         <p>Welcome to my Simple Website, mf! :)</p>
-        <Ninjas ninjas={this.state.ninjas} />
+        <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas} />
         <AddNinja addNinja={this.addNinja}/>
       </div>
     )
